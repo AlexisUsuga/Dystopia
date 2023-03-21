@@ -1,0 +1,84 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://script/enemy.gd" type="Script" id=1]
+[ext_resource path="res://asets/ENEMY/camIzq3.png" type="Texture" id=2]
+[ext_resource path="res://asets/ENEMY/CamIzq.png" type="Texture" id=3]
+[ext_resource path="res://asets/ENEMY/camIzq5.png" type="Texture" id=4]
+[ext_resource path="res://asets/ENEMY/camIzq4.png" type="Texture" id=5]
+[ext_resource path="res://asets/ENEMY/CamIzq2.png" type="Texture" id=6]
+[ext_resource path="res://asets/ENEMY/camDer.png" type="Texture" id=7]
+[ext_resource path="res://asets/ENEMY/camDer3.png" type="Texture" id=8]
+[ext_resource path="res://asets/ENEMY/camDer4.png" type="Texture" id=9]
+[ext_resource path="res://asets/ENEMY/camDer2.png" type="Texture" id=10]
+[ext_resource path="res://asets/ENEMY/camDer5.png" type="Texture" id=11]
+[ext_resource path="res://asets/ENEMY/ideDer.png" type="Texture" id=12]
+[ext_resource path="res://asets/ENEMY/IDE.png" type="Texture" id=13]
+[ext_resource path="res://asets/ENEMY/ideIzq.png" type="Texture" id=14]
+[ext_resource path="res://asets/ENEMY/camIzq10.png" type="Texture" id=15]
+[ext_resource path="res://asets/ENEMY/camDer7.png" type="Texture" id=16]
+[ext_resource path="res://asets/ENEMY/camDer9.png" type="Texture" id=17]
+[ext_resource path="res://asets/ENEMY/camDer8.png" type="Texture" id=18]
+[ext_resource path="res://asets/ENEMY/camIzq8.png" type="Texture" id=19]
+[ext_resource path="res://asets/ENEMY/camIzq6.png" type="Texture" id=20]
+[ext_resource path="res://asets/ENEMY/camIzq7.png" type="Texture" id=21]
+[ext_resource path="res://asets/ENEMY/camDer10.png" type="Texture" id=22]
+[ext_resource path="res://asets/ENEMY/camDer6.png" type="Texture" id=23]
+[ext_resource path="res://asets/ENEMY/camIzq9.png" type="Texture" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 19.75 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "IDE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "caminarDer",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "caminarIzq",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "ideDer",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "ideIzq",
+"speed": 4.0
+} ]
+
+[node name="enemy" type="KinematicBody2D"]
+position = Vector2( 232, 164 )
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Coll" type="CollisionShape2D" parent="." groups=["pj"]]
+shape = SubResource( 1 )
+
+[node name="Ani" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 2 )
+frames = SubResource( 2 )
+animation = "IDE"
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -14, 4 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 10, -14, 208, -77, 210, 42, 12, 4 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_areaEnemyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="_areaEnemyExited"]

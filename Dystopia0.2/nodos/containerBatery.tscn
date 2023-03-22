@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="containerBatery" type="CanvasLayer"]
+
+[node name="boxH" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="textBatery" type="Label" parent="boxH"]
+margin_top = 13.0
+margin_right = 86.0
+margin_bottom = 27.0
+text = "la bateria es: "
+
+[node name="valueBattery" type="Label" parent="boxH"]
+margin_left = 90.0
+margin_top = 13.0
+margin_right = 114.0
+margin_bottom = 27.0
+text = "100"

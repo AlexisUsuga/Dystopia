@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 8 )
+
+[node name="ubicacion" type="StaticBody2D" groups=["ubicacion"]]
+position = Vector2( 1271, 370 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="col" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 8 )
+shape = SubResource( 1 )
+disabled = true
+one_way_collision = true

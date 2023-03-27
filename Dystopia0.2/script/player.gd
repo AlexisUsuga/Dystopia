@@ -9,7 +9,15 @@ var gravity = 1900
 
 
 export var timeBattery: float = 1
+<<<<<<< HEAD
 var speed = 150
+=======
+<<<<<<< HEAD
+var speed = 150
+=======
+var speed = 450
+>>>>>>> e2789db (mejoro IA de enemigo)
+>>>>>>> 503355b (mejoro la IA del enemigo)
 var saveDirec = 0
 var timer
 var battery
@@ -50,7 +58,17 @@ func _bodyEnteredPlug(body):
 			_changeBattery()
 			
 """
+<<<<<<< HEAD
 func _physics_process(delta):		
+=======
+<<<<<<< HEAD
+func _physics_process(delta):		
+=======
+
+func _physics_process(delta):		
+	
+>>>>>>> e2789db (mejoro IA de enemigo)
+>>>>>>> 503355b (mejoro la IA del enemigo)
 	#colocamos timer.start() donde queramos que se empieze el timer
 	
 	velocity.y = gravity*delta

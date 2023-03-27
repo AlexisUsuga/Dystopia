@@ -1,8 +1,18 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://script/plug.gd" type="Script" id=1]
+<<<<<<< HEAD
 [ext_resource path="res://asets/mapeo/enchufe2.png" type="Texture" id=2]
 [ext_resource path="res://asets/mapeo/enchufe1.png" type="Texture" id=3]
+=======
+<<<<<<< HEAD
+[ext_resource path="res://asets/mapeo/enchufe2.png" type="Texture" id=2]
+[ext_resource path="res://asets/mapeo/enchufe1.png" type="Texture" id=3]
+=======
+[ext_resource path="res://asets/sprites/mapa/plug2.png" type="Texture" id=2]
+[ext_resource path="res://asets/sprites/mapa/plug1.png" type="Texture" id=3]
+>>>>>>> e2789db (mejoro IA de enemigo)
+>>>>>>> 503355b (mejoro la IA del enemigo)
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://asets/panel/panel.png" type="Texture" id=1]
+[ext_resource path="res://asets/panel/panel1.png" type="Texture" id=2]
+[ext_resource path="res://asets/panel/panel2.png" type="Texture" id=3]
+[ext_resource path="res://script/panel.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "focus",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="padre" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="panelInterfaz" type="CanvasLayer" parent="."]
+
+[node name="texture" type="TextureRect" parent="panelInterfaz"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = 1.0
+margin_right = -844.0
+margin_bottom = -559.0
+rect_scale = Vector2( 4.3, 3.9 )
+texture = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="panelInterfaz/texture"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -55.0
+margin_right = 37.5
+margin_bottom = 55.0
+
+[node name="Label" type="Label" parent="panelInterfaz/texture/VBoxContainer"]
+margin_right = 75.0
+margin_bottom = 14.0
+text = "123456789"
+
+[node name="GridContainer" type="GridContainer" parent="panelInterfaz/texture/VBoxContainer"]
+margin_top = 18.0
+margin_right = 75.0
+margin_bottom = 110.0
+columns = 3
+
+[node name="1" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+text = "1"
+
+[node name="2" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 20.0
+text = "2"
+
+[node name="3" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_right = 75.0
+margin_bottom = 20.0
+text = "3"
+
+[node name="4" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_top = 24.0
+margin_right = 20.0
+margin_bottom = 44.0
+text = "4"
+
+[node name="5" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 44.0
+margin_bottom = 44.0
+text = "5"
+
+[node name="6" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 75.0
+margin_bottom = 44.0
+text = "6"
+
+[node name="7" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_top = 48.0
+margin_right = 20.0
+margin_bottom = 68.0
+text = "7"
+
+[node name="8" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 24.0
+margin_top = 48.0
+margin_right = 44.0
+margin_bottom = 68.0
+text = "8"
+
+[node name="9" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 68.0
+text = "9"
+
+[node name="borrar" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_top = 72.0
+margin_right = 20.0
+margin_bottom = 92.0
+text = "b"
+
+[node name="0" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 44.0
+margin_bottom = 92.0
+text = "0"
+
+[node name="aceptar" type="Button" parent="panelInterfaz/texture/VBoxContainer/GridContainer"]
+margin_left = 48.0
+margin_top = 72.0
+margin_right = 75.0
+margin_bottom = 92.0
+text = "ok"
+
+[node name="Button" type="Button" parent="panelInterfaz/texture"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 20.0
+text = "X"
+
+[node name="panel" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="area" type="Area2D" parent="panel"]
+
+[node name="col" type="CollisionShape2D" parent="panel/area"]
+shape = SubResource( 2 )
+
+[connection signal="pressed" from="panelInterfaz/texture/Button" to="." method="_onPressedButtonExid"]
+[connection signal="body_entered" from="panel/area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="panel/area" to="." method="_on_area_body_exited"]

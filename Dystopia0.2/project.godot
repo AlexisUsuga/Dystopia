@@ -10,11 +10,34 @@ config_version=4
 
 [application]
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 503355b (mejoro la IA del enemigo)
 config/name="gameVersion0.0"
 run/main_scene="res://nodos/game.tscn"
 
 [display]
 
+<<<<<<< HEAD
+=======
+=======
+config/name="DystopiaAlpha"
+run/main_scene="res://nodos/game.tscn"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+config/icon="res://comoConocisteMadre.mp4"
+
+[autoload]
+
+Globals="*res://script/Globals.gd"
+
+[display]
+
+window/size/width=1080
+window/size/height=720
+>>>>>>> e2789db (mejoro IA de enemigo)
+>>>>>>> 503355b (mejoro la IA del enemigo)
 window/per_pixel_transparency/allowed=true
 
 [filesystem]
